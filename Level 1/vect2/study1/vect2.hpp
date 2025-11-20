@@ -5,53 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/19 22:56:59 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/20 11:56:55 by mbani-ya         ###   ########.fr       */
+/*   Created: 2025/11/20 12:21:19 by mbani-ya          #+#    #+#             */
+/*   Updated: 2025/11/20 13:59:13 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECT2_HPP
 # define VECT2_HPP
 
-#include <vector>
 #include <iostream>
 
 class vect2 {
 private:
-	int _x;
+	int	_x;
 	int	_y;
 public:
 	vect2();
 	vect2(int paramX, int paramY);
-	vect2&	operator=(const vect2& other);
+	vect2(const vect2& other);
+	vect2& operator=(const vect2& other);
 	~vect2();
-
-	//mathematics
-	vect2	operator+(const vect2& other) const;
-	vect2	operator-(const vect2& other) const;
-	vect2	operator* (const vect2& other) const;
-	vect2	operator* (const int scalar) const;
-	//extra
-	vect2	&operator+=(const vect2& other);
-	vect2	&operator-=(const vect2& other);
-	vect2	&operator*=(const int scalar);
-	//signed
-	vect2	operator+();
-	vect2	operator-();
-	//increment, decrement
-	vect2	&operator++();
+	//math
+	vect2 operator+(const vect2& other) const;
+	vect2 operator-(const vect2& other) const;
+	vect2 operator*(const int nbr) const;
+	//increment
+	vect2&	operator++();
 	vect2	operator++(int);
-	vect2	&operator--();
+	vect2&	operator--();
 	vect2	operator--(int);
-	//comparison
+	//equal
+	vect2&	operator+=(const vect2& other);
+	vect2&	operator-=(const vect2& other);
+	vect2&	operator*=(const int scalar);
 	bool	operator==(const vect2& other) const;
 	bool	operator!=(const vect2& other) const;
-	int	&operator[](int i);
-	const int &operator[](int i) const;
-	
-	friend std::ostream&	operator<<(std::ostream& os, const vect2& other);
+	//subscript
+	int			&operator[](int i);
+	const int	&operator[](int i) const;
+	//signed
+	vect2	operator+() const;
+	vect2	operator-() const;
+	friend std::ostream&	operator<<(std::ostream& o, const vect2& other);
 };
 
-vect2	operator*(const int scalar, const vect2 &other);
+vect2 operator*(const int nbr, const vect2& other);
 
 #endif

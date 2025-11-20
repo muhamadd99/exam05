@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/20 09:54:30 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/20 11:57:32 by mbani-ya         ###   ########.fr       */
+/*   Created: 2025/11/20 13:00:56 by mbani-ya          #+#    #+#             */
+/*   Updated: 2025/11/20 14:05:45 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ vect2::vect2() : _x(0), _y(0)
 vect2::vect2(int paramX, int paramY) : _x(paramX), _y(paramY)
 {}
 
-vect2 &vect2::operator=(const vect2& other)
+vect2::vect2(const vect2& other) : _x(other._x), _y(other._y)
+{}
+
+vect2&	vect2::operator=(const vect2& other)
 {
 	if (this != &other)
 	{
@@ -33,57 +36,26 @@ vect2::~vect2()
 
 vect2	vect2::operator+(const vect2& other) const
 {
-	int	x = _x + other._x;
-	int	y = _y + other._y;
+	int x = _x + other._x;
+	int y = _y + other._y;
 	return (vect2(x, y));
 }
 
 vect2	vect2::operator-(const vect2& other) const
 {
-	int	x = _x - other._x;
-	int	y = _y - other._y;
+	int x = _x - other._x;
+	int y = _y - other._y;
 	return (vect2(x, y));
 }
 
-vect2	vect2::operator*(const vect2& other) const
+vect2	vect2::operator*(const int nbr) const
 {
-	int	x = _x * other._x;
-	int	y = _y * other._y;
+	int x = _x * nbr;
+	int y = _y * nbr;
 	return (vect2(x, y));
 }
 
-vect2	&vect2::operator+=(const vect2& other)
-{
-	_x = _x + other._x;
-	_y = _y + other._y;
-	return (*this);
-}
-
-vect2	&vect2::operator-=(const vect2& other)
-{
-	_x = _x - other._x;
-	_y = _y - other._y;
-	return (*this);
-}
-
-vect2	&vect2::operator*=(const int scalar)
-{
-	_x = _x * scalar;
-	_y = _y * scalar;
-	return (*this);
-}
-
-vect2	vect2::operator+()
-{
-	return (*this);
-}
-
-vect2	vect2::operator-()
-{
-	return (vect2(-_x, -_y));
-}
-
-vect2	&vect2::operator++()
+vect2&	vect2::operator++()
 {
 	_x++;
 	_y++;
@@ -95,10 +67,10 @@ vect2	vect2::operator++(int)
 	vect2 old = *this;
 	_x++;
 	_y++;
-	return(old); 
+	return (old);
 }
 
-vect2	&vect2::operator--()
+vect2&	vect2::operator--()
 {
 	_x--;
 	_y--;
@@ -113,22 +85,38 @@ vect2	vect2::operator--(int)
 	return (old);
 }
 
+vect2&	vect2::operator+=(const vect2& other)
+{
+	*this = *this + other;
+	return (*this);
+}
+
+vect2&	vect2::operator-=(const vect2& other)
+{
+	*this = *this - other;
+	return (*this);
+}
+
+vect2&	vect2::operator*=(const int scalar)
+{
+	*this = *this * scalar;
+	return (*this);
+}
+
 bool	vect2::operator==(const vect2& other) const
 {
-	if (this->_x == other._x && this->_y == other._y)
+	if (_x == other._x && _y == other._y)
 		return true;
 	return false;
 }
 
 bool	vect2::operator!=(const vect2& other) const
 {
-	if (*this == other)
-		return false;
-	return true;
+	return !(_x == other._x && _y == other._y);
 }
 
-int	&vect2::operator[](int i)
-{	
+int		&vect2::operator[](int i)
+{
 	if (i == 0)
 		return _x;
 	else if (i == 1)
@@ -147,20 +135,25 @@ const int	&vect2::operator[](int i) const
 		throw std::out_of_range("out of bound vect2");
 }
 
-std::ostream&	operator<<(std::ostream& os, const vect2& other)
+vect2	vect2::operator+() const
 {
-	os << "{" << other._x << ", " << other._y << "}";
-	return os;
+	return (*this);
 }
 
-vect2	vect2::operator*(const int scalar) const
+vect2	vect2::operator-() const
 {
-	int x = _x * scalar;
-	int y = _y * scalar;
-	return (vect2(x, y));
+	int	newX = -_x;
+	int	newY = -_y;
+	return (vect2(newX, newY));
 }
 
-vect2	operator*(const int scalar, const vect2 &other)
+std::ostream&	operator<<(std::ostream& o, const vect2& other)
 {
-	return (other * scalar);
+	o << "{" << other[0] << ", " << other[1] << "}";
+	return o;
+}
+
+vect2	operator*(const int nbr, const vect2& other)
+{
+	return (other * nbr);
 }
