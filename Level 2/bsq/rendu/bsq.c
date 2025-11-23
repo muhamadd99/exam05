@@ -102,11 +102,11 @@ int	read_map(FILE *f, t_bsq *b)
 			return(free(line), 0);
 		line[got - 1] = '\0';
 		got--;
-		if (cols < 0)
+		if (cols < 0) //if 1st iteration, column no stored
 			cols = (int)got;
-		else if (cols != (int)got)
+		else if (cols != (int)got) //check map same size or not
 			return(free(line), 0);
-		for (int j = 0; j < cols; j++)
+		for (int j = 0; j < cols; j++) //check char is valid or not
 		{
 			char	c = line[j];
 
@@ -116,7 +116,7 @@ int	read_map(FILE *f, t_bsq *b)
 		b->map[i] = malloc((size_t)cols + 1);
 		if (!b->map[i])
 			return(free(line), 0);
-		for (int j = 0; j < cols; j++)
+		for (int j = 0; j < cols; j++) //store map
 			b->map[i][j] = line[j];
 		b->map[i][cols] = '\0';
 	}
