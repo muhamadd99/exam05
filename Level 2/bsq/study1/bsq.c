@@ -6,7 +6,7 @@
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 22:14:45 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/24 23:01:47 by mbani-ya         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:40:58 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ int loadElements(FILE* file, t_elements* element)
 		return -1;
 }
 
+
 int loadMaps(FILE* file, t_elements* element, t_maps* map)
 {
-
+	
 }
 
 //load element
