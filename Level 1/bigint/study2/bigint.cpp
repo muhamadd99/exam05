@@ -6,7 +6,7 @@
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 10:41:41 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/27 19:14:08 by mbani-ya         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:34:14 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		bigint::to_int() const
 		if (res > INT_MAX)
 			return (INT_MAX);
 	}
-	return res;
+	return (res);
 }
 
 bigint::bigint() : digits(1, 0) {}
@@ -49,7 +49,7 @@ bigint::bigint(const std::string& s)
 {
 	for (int i = s.size() - 1; i >= 0; i--)
 	{
-		if(isdigit(s[i]))
+		if(std::isdigit(s[i]))
 			digits.push_back(s[i] - '0');
 	}
 	if (digits.empty())
@@ -64,7 +64,7 @@ bigint& bigint::operator=(const bigint& other)
 {
 	if (this != &other)
 		digits = other.digits;
-	return *this;
+	return (*this);
 }
 
 bigint::~bigint() {}
@@ -106,7 +106,7 @@ bigint	bigint::operator<<(const bigint& other) const
 }
 
 //insert
-bigint	bigint::operator<<(const int shift) const
+bigint	bigint::operator<<(int shift) const
 {
 	
 	if (*this == bigint(0))
@@ -122,7 +122,7 @@ bigint&	bigint::operator<<=(const bigint& other)
 	return (*this);
 }
 
-bigint&	bigint::operator<<=(const int shift)
+bigint&	bigint::operator<<=(int shift)
 {
 	*this = *this << shift;
 	return (*this);
@@ -136,7 +136,7 @@ bigint	bigint::operator>>(const bigint& other) const
 	return tmp;
 }
 
-bigint	bigint::operator>>(const int shift) const
+bigint	bigint::operator>>(int shift) const
 {
 	bigint	tmp = *this;
 	if (shift >= (int)tmp.digits.size())
@@ -152,7 +152,7 @@ bigint&	bigint::operator>>=(const bigint& other)
 	return *this;
 }
 
-bigint&	bigint::operator>>=(const int shift)
+bigint&	bigint::operator>>=(int shift)
 {
 	*this = *this >> shift;
 	return *this;
@@ -161,7 +161,7 @@ bigint&	bigint::operator>>=(const int shift)
 bigint&	bigint::operator++()
 {
 	*this = *this + bigint(1);
-	return *this;
+	return (*this);
 }
 
 bigint	bigint::operator++(int)

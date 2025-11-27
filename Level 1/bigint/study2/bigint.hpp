@@ -6,13 +6,14 @@
 /*   By: mbani-ya <mbani-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 10:41:57 by mbani-ya          #+#    #+#             */
-/*   Updated: 2025/11/27 18:36:47 by mbani-ya         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:36:18 by mbani-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BIGINT_HPP
 # define BIGINT_HPP
 
+#include <iostream>
 #include <string>
 #include <vector>
 
