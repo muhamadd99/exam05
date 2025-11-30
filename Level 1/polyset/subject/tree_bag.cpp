@@ -18,12 +18,14 @@ tree_bag::~tree_bag() {
 	this->destroy_tree(this->tree);
 }
 
+//amik tree dari luar
 tree_bag::node *tree_bag::extract_tree() {
 	node *ret = this->tree;
 	this->tree = 0;
 	return ret;
 }
 
+//delete current tree and set to the given tree
 void tree_bag::set_tree(node *t) {
 	destroy_tree(this->tree);
 	this->tree = t;
