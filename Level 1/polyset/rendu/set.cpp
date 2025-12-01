@@ -14,7 +14,7 @@ void set::insert(int value)
 
 void set::insert(int *arr, int size)
 {
-	for (int i = 0; int < size; i++)
+	for (int i = 0; i < size; i++)
 	{
 		if (!bag.has(arr[i]))
 			bag.insert(arr[i]);
