@@ -9,8 +9,10 @@ void	bigint::trim()
 
 int		bigint::to_int() const
 {
-	long long	res = 0;
+	unsigned long long	res = 0;
 
+	if (digits.size() == 1 && digits[0] == 0)
+		return 0;
 	for (int i = digits.size() - 1; i >= 0; i--)
 	{
 		res = res * 10 + digits[i];

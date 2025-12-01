@@ -3,13 +3,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "limits.h"
 
 class	bigint
 {
 	private:
 		std::vector<int>	digits;
-		void	trim();
 		int		to_int() const;
+		void	trim();
 	public:
 		bigint();
 		bigint(unsigned long long n);
@@ -19,7 +20,7 @@ class	bigint
 		~bigint();
 
 		friend std::ostream&	operator<<(std::ostream& os, const bigint& b);
-
+//
 		bigint&	operator++();
 		bigint	operator++(int);
 
