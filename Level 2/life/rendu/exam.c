@@ -37,7 +37,7 @@ int main(int ac, char *av[])
     }
     for(int it = 0 ; it < iterations ; it++)
     {
-        int curr = it % 2;
+        int curr = it % 2; //why % 2. does it increment by 2?
         int next = (it + 1) % 2;
         for(int i = 1 ; i <= height ; i++)
         {
@@ -48,7 +48,7 @@ int main(int ac, char *av[])
                 {
                     for(int dx = -1 ; dx <= 1 ; dx++)
                     {
-                        if(dx != 0 || dy != 0)
+                        if(dx != 0 || dy != 0) 
                             n += grid[curr][i + dy][j + dx];
                     }
                 }

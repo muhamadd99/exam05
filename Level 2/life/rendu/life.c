@@ -38,6 +38,15 @@ int	main(int ac, char **av)
 			pen = !pen;
 		if (pen)
 			grid[0][y][x] = 1;
+		// else if (c == 'x')
+		// {
+		// 	if (pen == 1)
+		// 		pen = 0;
+		// 	else
+		// 		pen = 1;
+		// 	if (pen == 1)
+		// 		grid[0][y][x]
+		// }
 	}
 
 	for (int it = 0; it < iterations; it++)
