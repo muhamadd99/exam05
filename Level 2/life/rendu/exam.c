@@ -38,7 +38,7 @@ int main(int ac, char *av[])
     for(int it = 0 ; it < iterations ; it++)
     {
         int curr = it % 2; //why % 2. does it increment by 2?
-        int next = (it + 1) % 2;
+        int next = (it % 2) + 1;
         for(int i = 1 ; i <= height ; i++)
         {
             for(int j = 1 ; j <= width ; j++)
